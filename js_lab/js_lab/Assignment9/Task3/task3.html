@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Name: Nitin Kumar | Roll: BCS2025601 | Assignment 9 | Task 3 -->
+<html>
+<head>
+  <title>Assignment 9 - Task 3</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, button { padding: 6px 10px; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <input type="text" id="note" placeholder="Write a note">
+  <button id="save">Save</button>
+  <p id="msg"></p>
+
+  <script>
+    const box = document.getElementById("note");
+    const msg = document.getElementById("msg");
+
+    // When the page opens, show the saved text
+    box.value = localStorage.getItem("note") || "";
+
+    document.getElementById("save").addEventListener("click", function () {
+      localStorage.setItem("note", box.value);
+      msg.textContent = "Saved";
+    });
+  </script>
+</body>
+</html>
